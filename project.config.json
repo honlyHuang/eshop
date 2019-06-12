@@ -1,0 +1,78 @@
+{
+	"miniprogramRoot": "client/dist/",
+	"cloudfunctionRoot": "cloud/functions/",
+	"projectname": "eshop",
+	"description": "电商小程序",
+	"appid": "wx22203329a468e8a1",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "shop",
+					"pathName": "pages/shop/shop",
+					"query": "venderId=1&__key_=15584228108691",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shop",
+					"pathName": "pages/detail/detail",
+					"query": "skuId=4&__key_=15584232995931",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "cart_sub",
+					"pathName": "pages/cart/cart_sub",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "order",
+					"pathName": "pages/user/order/detail/detail",
+					"query": "orderId=wn2t1c4mp3&__key_=15584580655295",
+					"scene": null
+				}
+			]
+		}
+	}
+}

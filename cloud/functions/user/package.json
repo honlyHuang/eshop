@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "wx-server-sdk": "^0.2.1"
+  }
+}
