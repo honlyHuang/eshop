@@ -1,0 +1,11 @@
+<block>
+    <view class="search_not_found">
+        <image class="not_found_img" src="{{errIcon}}"></image><text class="not_found_text">很抱歉</text>
+        <block wx:if="{{!showErrorProblem && showNotFind}}"><text class="not_found_word">{{showWordsTips}}</text>
+        </block>
+        <block wx:if="{{showErrorProblem}}">
+            <view><text class="not_found_word">程序员可能送货去了</text><text class="not_found_btn" bindtap="refresh">刷新试试</text>
+            </view>
+        </block>
+    </view>
+</block>

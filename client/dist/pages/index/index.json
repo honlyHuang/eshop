@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "search-into": "../../components/search/searchInto",
+    "modal": "../../components/gb/modal/modal"
+  },
+  "navigationBarTitleText": "eshop",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "disableScroll": true
+}

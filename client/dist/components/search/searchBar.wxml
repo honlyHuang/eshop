@@ -1,0 +1,20 @@
+<block>
+    <view class="search_container">
+        <view class="search_container_box">
+            <view class="search_container_box-search_box">
+                <view class="search_container_box-search_icon-wrap">
+                    <image mode="aspectFit" class="search_container_box-search_icon" src="{{searchIcon}}"></image>
+                </view>
+                <input class="search_container_box-search_input" type="text" placeholder="{{placeholder}}" confirm-type="search" value="{{words}}" bindtap="onFocusSearch" bindconfirm="goSearch" bindinput="onSearchInput" bindkeydown="onH5Enter" />
+                <view class="{{!showSearchResult && words !== '' ? 'search_container_box-search_del' : 'search_not_see'}}" bindtap="deleteHandler">
+                    <image mode="aspectFit" class="search_container_box-search_del_icon" src="{{searchDel}}"></image>
+                </view>
+            </view>
+            <view class="{{showSearchResult ? 'search_container_box-search_show_cart' : 'search_not_see'}}">
+                <image mode="aspectFit" class="search_container_box-cart_icon" src="{{cartIcon}}" bindtap="goCart"></image>
+                <view class="search_container_box-cart_num_wrap"><text class="search_container_box-cart_num">{{carNumber}}</text>
+                </view>
+            </view><text bindtap="cancelSearch" class="{{!showSearchResult ? 'search_container_box-search_show_cancel' : 'search_not_see'}}">取消</text>
+        </view>
+    </view>
+</block>

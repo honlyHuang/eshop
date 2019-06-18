@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "search-bar": "../../components/search/searchBar",
+    "search-hot": "../../components/search/searchHot",
+    "search-history": "../../components/search/searchHistory",
+    "search-filter": "../../components/search/searchFilter/searchFilter",
+    "result-list": "../../components/search/searchResult/resultList",
+    "search-error": "../../components/search/searchResult/searchError"
+  },
+  "navigationBarTitleText": "搜索列表",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 300,
+  "backgroundTextStyle": "dark",
+  "disableScroll": true
+}

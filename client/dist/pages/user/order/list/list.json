@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "modal": "../../../../components/gb/modal/modal"
+  },
+  "navigationBarTitleText": "订单中心",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

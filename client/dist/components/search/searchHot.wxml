@@ -1,0 +1,8 @@
+<block>
+    <block wx:if="{{hotWords.length > 0}}">
+        <view class="hot_word"><text class="hot_word-title">{{titleName}}</text>
+            <view class="hot_word-list"><text class="{{item ? 'hot_word-keyword' : 'search_not_see'}}" bindtap="goSearch" wx:key="index" wx:for="{{hotWords}}" wx:for-item="item" wx:for-index="index" data-e-tap-so="this" data-e-tap-a-a="{{item}}">{{item}}</text>
+            </view>
+        </view>
+    </block>
+</block>

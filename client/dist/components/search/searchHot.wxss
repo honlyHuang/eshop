@@ -1,0 +1,53 @@
+
+/*postcss-pxtransform rn eject enable*/
+.hot_word-keyword {
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*postcss-pxtransform rn eject disable*/
+.hot_word {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.hot_word-title {
+  padding: 40rpx 40rpx 30rpx;
+  color: #232321;
+  font-size: 28rpx;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hot_word-list {
+  padding: 0 40rpx 40rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.hot_word-keyword {
+  color: #191919;
+  font-size: 28rpx;
+  border: 1rpx solid #ddd;
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 0 30rpx;
+  margin: 0 16rpx 16rpx 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+}

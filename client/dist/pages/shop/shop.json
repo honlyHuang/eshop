@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "search-into": "../../components/search/searchInto"
+  },
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "disableScroll": true
+}

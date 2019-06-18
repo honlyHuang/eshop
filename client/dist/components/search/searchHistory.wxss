@@ -1,0 +1,56 @@
+
+.history {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+
+.history_title {
+  padding: 40rpx;
+  border-width: 0 0 1rpx 0;
+  border-style: solid;
+  border-bottom-color: #ddd;
+}
+
+.history_title_content {
+  color: #232321;
+  font-size: 28rpx;
+  font-weight: 600;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.history_word {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-style: solid;
+  border-bottom-color: #ddd;
+  border-width: 0 0 1rpx 0;
+}
+
+.history_word_info {
+  font-size: 28rpx;
+  padding: 40rpx;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.history_word_del {
+  margin: 48rpx 40rpx 0;
+  width: 26rpx;
+  height: 26rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}

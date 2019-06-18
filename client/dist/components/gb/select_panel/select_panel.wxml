@@ -1,0 +1,30 @@
+<block>
+    <view class="{{selectPanelClassName}}" catchtouchmove="touchMove">
+        <view class="select_panel_mask" bindanimationend="onAnimationEnd" bindtap="closePanel"></view>
+        <view class="select_panel_wrapper">
+            <view class="select_panel_hd"><text>{{title}}</text>
+                <view class="select_panel_close"></view>
+            </view>
+            <view class="select_panel_bd">
+                <view class="select_panel_tip">
+                    <view wx:key="index" wx:for="{{tips}}" wx:for-item="item" wx:for-index="index">{{item}}</view>
+                </view>
+                <view class="select_panel_main">
+                    <view class="select_panel_sub"><text class="select_panel_sub_tit">{{subTitle}}</text>
+                    </view>
+                    <view class="select_panel_detail">
+                        <view wx:key="index" class="{{'select_panel_detail_item' + (index === selectedIndex ? ' selected' : '')}}" bindtap="seleted" wx:for="{{detail}}" wx:for-item="item" wx:for-index="index" data-e-tap-so="this" data-e-tap-a-a="{{index}}" data-e-tap-a-b="{{item}}">
+                            <view class="select_panel_detail_inner"><text class="select_panel_detail_txt">{{item.desc}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="select_panel_ft">
+                <button class="{{'select_panel_ft_btn confirm' + (confirmDisable && ' disabled')}}" bindtap="confirmSelect">{{confirmBtnText}}</button>
+                <view class="select_panel_ft_split"></view>
+                <button class="select_panel_ft_btn cancel disabled" bindtap="closePanel">{{cancelBtnText}}</button>
+            </view>
+        </view>
+    </view>
+</block>

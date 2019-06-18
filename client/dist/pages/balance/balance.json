@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "express": "../../components/balance/express",
+    "good-list": "../../components/balance/good_list",
+    "modal": "../../components/gb/modal/modal"
+  },
+  "navigationBarTitleText": "确认订单",
+  "disableScroll": true
+}

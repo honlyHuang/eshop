@@ -1,0 +1,20 @@
+<block>
+    <view class="balance_box balance_good">
+        <view class="balance_good_addr">
+            <image class="balance_good_addr_icon" src="https://static.360buyimg.com/tp-statics/2018-4-20/m/img/ic_shdz46x60@2x.png"></image>
+            <view class="addr_detail">
+                <view class="addr_detail_header"><text class="addr_detail_grey">收货人A</text><text class="addr_detail_grey">&nbsp;123456789&nbsp;</text><text class="addr_default">&nbsp;默认</text>
+                </view><text class="addr_text">广东省深圳市宝安区龙光世纪大厦</text>
+            </view>
+            <image class="balance_box_arrow" src="https://static.360buyimg.com/tp-statics/2018-4-20/m/img/ic_right_arrow@2x.png"></image>
+        </view>
+        <view class="balance_slice"></view>
+        <view class="balance_good_express"><text class="balance_good_label">配送</text>
+            <view class="val_wrap">
+                <view class="val_express"><text class="expredd_grey">TARO商城配送</text><text class="express_fee"><text class="express_fee_small">¥</text>{{freightPrice}}</text>
+                </view><text class="val_time">TARO商城配送默认时间</text>
+            </view>
+            <image class="balance_box_arrow" src="https://static.360buyimg.com/tp-statics/2018-4-20/m/img/ic_right_arrow@2x.png"></image>
+        </view>
+    </view>
+</block>

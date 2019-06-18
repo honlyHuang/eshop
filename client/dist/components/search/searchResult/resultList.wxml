@@ -1,0 +1,19 @@
+<block>
+    <block wx:if="{{list.length > 0}}">
+        <scroll-view scroll-y="{{true}}" class="search_result-scroll">
+            <view class="search_result-result_content">
+                <view class="result_content_list">
+                    <view class="result_content-item" wx:key="index" bindtap="doJump" wx:for="{{list}}" wx:for-item="item" wx:for-index="index" data-e-tap-so="this" data-e-tap-a-a="{{item.skuId}}">
+                        <view class="result_content-item_img">
+                            <image class="item_img_info" mode="widthFix" src="{{item.imageUrl ? 'http://' + item.imageUrl : ''}}" lazy-load="{{true}}"></image>
+                        </view><text class="result_content-item_title">{{item.skuName || ''}}</text><text class="result_content-item_subtitle">{{item.name}}</text><text class="result_content-item_price" bindtap="doJump" data-e-tap-so="this" data-e-tap-a-a="{{item.skuId}}"><block wx:if="{{item.price && item.price !== '-1'}}"><text class="result_content-item_price_unit">¥</text>
+    </block>{{item.price && item.price !== '-1' ? item.price : '暂无报价'}}</text>
+    </view>
+    </view>
+    <view class="{{showGoTop ? 'search_result-go_top' : 'search_result-go_top not_see_go'}}" bindtap="srollToTop">
+        <view class="search_result-go_to_arrow"></view>
+    </view><text class="{{searchResult.count <= searchResult.page * 10 ? 'has_not_more' : 'search_not_see'}}">没有更多商品了~</text><text class="{{searchResult.count > searchResult.page * 10 ? 'has_not_more' : 'search_not_see'}}">正在加载中...</text>
+    </view>
+    </scroll-view>
+</block>
+</block>

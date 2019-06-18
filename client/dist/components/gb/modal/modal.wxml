@@ -1,0 +1,19 @@
+<block>
+    <view class="toplife_modal" catchtouchmove="preventTouchMove">
+        <view class="toplife_modal_content">
+            <view class="toplife_modal_title">{{title}}</view>
+            <view class="toplife_modal_text">{{contentText}}</view>
+            <view class="toplife_modal_btn">
+                <button class="toplife_modal_btn_cancel" bindtap="onCancelClick">{{cancelText}}</button>
+                <block>
+                    <block wx:if="{{!isAuth}}">
+                        <button class="toplife_modal_btn_confirm" bindtap="onConfirmClick">{{confirmText}}</button>
+                    </block>
+                    <block wx:else>
+                        <button class="toplife_modal_btn_confirm" open-type="getUserInfo" bindgetuserinfo="onAuthConfirmClick">授权</button>
+                    </block>
+                </block>
+            </view>
+        </view>
+    </view>
+</block>

@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "select-panel": "../../../../components/gb/select_panel/select_panel",
+    "modal": "../../../../components/gb/modal/modal"
+  },
+  "navigationBarTitleText": "订单详情",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "disableScroll": true
+}

@@ -1,0 +1,169 @@
+<block>
+    <block wx:if="{{!isFirst && canShowDetail}}">
+        <view class="order_detail">
+            <scroll-view scroll-y="{{true}}" class="order_detail-scroll">
+                <view class="user_detail">
+                    <block wx:if="{{isShowTip && (orderState === 5 || orderState === 6)}}">
+                        <view class="detail_tip">
+                            <view class="detail_tip_wrapper">
+                                <view class="detail_tip_txt"><text class="detail_tip_txt_tit">温馨提示：</text><text class="detail_tip_txt_cnt">小程序暂不支持申请维修售后，如有需要请前往APP。</text>
+                                </view>
+                                <view class="detail_tip_close" bindtap="closeTip"></view>
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:if="{{isShowTip && orderState === 1}}">
+                        <view class="detail_tip">
+                            <view class="detail_tip_wrapper">
+                                <view class="detail_tip_txt"><text class="detail_tip_txt_tit">温馨提示：</text><text class="detail_tip_txt_cnt">该订单需要在下单后24小时内完成支付，超时订单将会被取消。</text>
+                                </view>
+                                <view class="detail_tip_close" bindtap="closeTip"></view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="detail_tit"><text class="detail_num">订单号：{{orderId}}</text><text class="detail_status">状态：{{orderStateStr}}</text>
+                    </view>
+                    <view class="detail_cancel">
+                        <view class="detail_cancel_progress"><text>{{orderState === 1 ? '订单进度：' : '取消原因：'}}</text><text>{{cancelReasonText}}</text>
+                        </view><text class="detail_arrow">{{'>'}}</text>
+                    </view>
+                    <view class="detail_info detail_section">
+                        <view class="detail_get detail_section_item">
+                            <view class="detail_section_icon detail_get_icon">
+                                <image class="detail_section_icon_img" src="{{iconImg1}}"></image>
+                            </view>
+                            <view class="detail_section_main detail_get_main">
+                                <view class="detail_get_hd detail_section_main_hd"><text class="detail_section_main_hd_tit">A小伙伴</text><text class="detail_section_main_hd_txt">118******45</text>
+                                </view><text class="detail_get_address">广东省深圳市宝安区龙光世纪大厦</text>
+                            </view>
+                        </view>
+                        <view class="detail_express detail_section_item">
+                            <view class="detail_section_icon detail_express_icon">
+                                <image class="detail_section_icon_img" src="{{iconImg2}}"></image>
+                            </view>
+                            <view class="detail_section_main detail_express_main">
+                                <view class="detail_express_tit detail_section_main_hd"><text class="detail_express_tit_name detail_section_main_hd_tit">Taro商城配送</text><text class="detail_express_tit_num detail_section_main_hd_txt">运单编号：8247023234</text>
+                                </view>
+                                <view class="detail_section_main_bd"><text class="detail_express_codtime">期望配送时间：2020-01-12[周一] 09:00-19:00</text>
+                                    <view class="detail_express_track">
+                                        <view class="detail_express_track_left"><text class="detail_express_track_txt">你订单尚未支付，请去系统确认</text><text class="detail_express_track_time">{{orderDate}}</text>
+                                        </view><text class="detail_arrow">{{'>'}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="detail_main detail_section">
+                        <view class="user_detail_shop" bindtap="gotoBrand" data-e-tap-so="this" data-e-tap-a-a="{{venderId}}">
+                            <image mode="scaleToFill" class="detail_shop_img" src="{{'http:' + shopInfoSrc}}"></image>
+                        </view>
+                        <view class="detail_goods detail_section_item">
+                            <view class="detail_goods_list">
+                                <view class="detail_goods_item" wx:key="skuId" bindtap="gotoDetail" wx:for="{{skuInfoList}}" wx:for-item="sku" wx:for-index="_anonIdx" data-e-tap-so="this" data-e-tap-a-a="{{sku.skuId}}">
+                                    <view class="detail_goods_show">
+                                        <image class="detail_goods_img" src="{{sku.imageUrl}}" mode="aspectFit"></image>
+                                    </view>
+                                    <view class="detail_goods_info"><text class="detail_goods_tit">{{sku.info.skuName}}123</text>
+                                        <view class="detail_goods_attr">
+                                            <block wx:if="{{sku.info.colorInfo.value}}"><text class="detail_goods_attr_txt">{{sku.info.colorInfo.name}}：{{sku.info.colorInfo.value}}</text>
+                                            </block>
+                                            <block wx:if="{{sku.info.sizeInfo.value}}"><text class="detail_goods_attr_txt">{{sku.info.sizeInfo.name}}：{{sku.info.sizeInfo.value}}</text>
+                                            </block>
+                                        </view>
+                                        <view class="detail_goods_pc">
+                                            <view class="detail_goods_price"><text class="detail_goods_price_symbol">￥</text><text class="detail_goods_price_txt">{{sku.info.price}}</text>
+                                            </view><text class="detail_goods_count">X{{sku.num}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="detail_goods_total">
+                                <view class="detail_goods_total_count"><text class="detail_goods_total_count_txt">共{{totalGoodsCount}}件商品</text>
+                                </view>
+                                <view class="detail_goods_total_account">
+                                    <view class="detail_goods_total_item"><text class="detail_goods_total_item_tit fs-m color-grey">商品小计：</text>
+                                        <view class="detail_goods_total_item_info"><text class="detail_goods_total_item_symbol fs-m color-grey">￥</text><text class="fs-m color-grey">{{anonymousState__temp}}</text>
+                                        </view>
+                                    </view>
+                                    <view class="detail_goods_total_item"><text class="detail_goods_total_item_tit fs-m color-grey">运费：</text>
+                                        <view class="detail_goods_total_item_info"><text class="detail_goods_total_item_symbol fs-m color-grey">￥</text><text class="fs-m color-grey">{{anonymousState__temp2}}</text>
+                                        </view>
+                                    </view>
+                                    <view class="detail_goods_total_item detail_goods_total_item_stress"><text class="detail_goods_total_item_tit fs-m">支付金额：</text>
+                                        <view class="detail_goods_total_item_info"><text class="detail_goods_total_item_symbol">￥</text><text>{{anonymousState__temp3}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="detail_finance detail_section">
+                        <view class="detail_pay detail_section_item">
+                            <view class="detail_section_icon detail_pay_icon">
+                                <image class="detail_section_icon_img" src="{{iconImg3}}"></image>
+                            </view>
+                            <view class="detail_section_main detail_pay_main">
+                                <view class="detail_pay_hd detail_section_main_hd"><text class="detail_section_main_hd_tit">支付方式</text><text class="detail_section_main_hd_txt">{{payType === 4 ? '微信支付' : '货到付款'}}</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class="detail_invoice detail_section_item noinvoice">
+                            <view class="detail_section_icon detail_invoice_icon">
+                                <image class="detail_section_icon_img" src="{{iconImg4}}"></image>
+                            </view>
+                            <view class="detail_section_main detail_invoice_main">
+                                <view class="detail_invoice_hd detail_section_main_hd"><text class="detail_section_main_hd_tit">发票信息</text><text class="detail_section_main_hd_txt">我是发票信息啊啊啊</text>
+                                </view>
+                                <view class="detail_invoice_bd detail_section_main_bd">
+                                    <view class="detail_invoice_up"><text class="detail_invoice_up_tit">发票抬头：</text><text class="detail_invoice_up_txt">发票抬头ABCDEFG</text>
+                                    </view>
+                                    <view class="detail_invoice_cnt"><text class="detail_invoice_cnt_tit">发票内容：</text><text class="detail_invoice_cnt_txt">发票内容LIJHUH</text>
+                                    </view>
+                                    <view class="detail_invoice_get">
+                                        <view class="detail_invoice_get_btn"><text class="detail_invoice_get_btn_text">查看发票</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="detail_ft"><text class="detail_ft_text">下单时间：</text><text class="detail_ft_text">{{orderDate}}</text>
+                    </view>
+                    <block wx:if="{{isShowCancelReasonPanel}}">
+                        <select-panel title="取消原因" __triggerObserer="{{ _triggerObserer }}" subTitle="取消原因" tips="{{cancelTips}}" cancelBtnText="暂不取消" confirmBtnText="确定取消" detail="{{cancelReason}}" bindonclose="onHideCancelReason" bindonselected="onCancelOrder" __fn_onClose="{{true}}" data-e-onclose-so="this" __fn_onSelected="{{true}}" data-e-onselected-so="this"></select-panel>
+                    </block>
+                    <block wx:if="{{isShowRefundReasonPanel}}">
+                        <select-panel title="退款原因" __triggerObserer="{{ _triggerObserer }}" subTitle="退款原因" tips="{{cancelTips}}" cancelBtnText="暂不退款" confirmBtnText="确定退款" detail="{{refundReason}}" bindonclose="hideRefundReasonPanel" bindonselected="refundOrder" __fn_onClose="{{true}}" data-e-onclose-so="this" __fn_onSelected="{{true}}" data-e-onselected-so="this"></select-panel>
+                    </block>
+                    <block wx:if="{{isShowUserAuthModal}}">
+                        <modal title="授权提示" __triggerObserer="{{ _triggerObserer }}" contentText="TARO商城请求获取授权信息，以便记录您的订单" bindoncancelcallback="onHideUserAuthModal" bindonconfirmcallback="onProcessAuthResult" isAuth="{{true}}" __fn_onCancelCallback="{{true}}" data-e-oncancelcallback-so="this" __fn_onConfirmCallback="{{true}}" data-e-onconfirmcallback-so="this"></modal>
+                    </block>
+                </view>
+            </scroll-view>
+            <view class="detail_ops">
+                <block wx:if="{{orderState === -1 || orderState === 5 || orderState === 6}}">
+                    <view class="{{'detail_ops_btns' + (isIpx ? ' fix_ipx' : '')}}">
+                        <button class="detail_ops_btn" bindtap="deleteOrder">删除订单</button>
+                        <view class="detail_ops_split"></view>
+                        <button class="detail_ops_btn" bindtap="contactService">联系客服</button>
+                    </view>
+                </block>
+                <block wx:if="{{orderState === 1}}">
+                    <view class="detail_ops_btns"><text class="detail_ops_btn" bindtap="getCancelReason">取消订单</text>
+                        <view class="detail_ops_split"></view><text class="detail_ops_btn" bindtap="contactService">联系客服</text>
+                        <block>
+                            <block wx:if="{{!isShowUserAuth}}">
+                                <view class="detail_ops_pay" bindtap="payOrder" data-e-tap-so="this" data-e-tap-a-a="{{detail}}"><text>马上付款</text>
+                                </view>
+                            </block>
+                            <block wx:else>
+                                <view class="detail_ops_pay" bindtap="showUserAuthModal"><text>马上付款</text>
+                                </view>
+                            </block>
+                        </block>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </block>
+</block>

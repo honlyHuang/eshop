@@ -1,0 +1,32 @@
+<block>
+    <block wx:if="{{showFilterMask}}">
+        <view class="filter_mask" catchtouchmove="ture">
+            <view class="filter_mask_layer" bindtap="showFilterMask"></view>
+            <view class="{{filterContentClass}}">
+                <view class="search_filter_header">
+                    <view class="cate_header_back" bindtap="showFilterMask"></view><text class="cate_header_title">筛选1</text>
+                </view>
+                <view class="filter_main_box">
+                    <view class="filter_options">
+                        <view class="filter_options_title"><text class="options_title_text">活动</text>
+                        </view>
+                        <view class="filter_options_content activity"><text class="{{promotionType === 1 ? 'activity_item active' : 'activity_item'}}" bindtap="addPromotion" data-e-tap-so="this" data-e-tap-a-a="{{1}}">特惠</text>
+                        </view>
+                    </view>
+                    <view class="filter_options">
+                        <view class="filter_options_title"><text class="options_title_text">价格</text>
+                        </view>
+                        <view class="filter_options_content options_content_price">
+                            <input class="price_input" type="number" value="{{priceMin}}" bindinput="priceInput" cursor-spacing="20" maxlength="8" placeholder="最高价" data-e-input-so="this" data-e-input-a-a="min" /><text class="options_text">至</text>
+                            <input class="price_input" type="number" value="{{priceMax}}" bindinput="priceInput" cursor-spacing="20" maxlength="8" placeholder="最高价" data-e-input-so="this" data-e-input-a-a="max" />
+                        </view>
+                    </view>
+                    <view class="filter_confirm">
+                        <button class="item_btn reset_filter" bindtap="resetSearch">全部重置</button>
+                        <button class="item_btn filter_confirm_btn" bindtap="confirmSelect">确定</button>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</block>

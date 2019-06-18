@@ -1,0 +1,26 @@
+<block>
+    <view class="balance_good_wrap balance_good">
+        <view class="balance_box" wx:key="{{true}}" wx:for="{{payCommodities}}" wx:for-item="item" wx:for-index="_anonIdx2">
+            <view class="balance_good_shop">
+                <image class="balance_good_shop_image" src="{{'http:' + item.shop.thumbnail}}" mode="aspectFill"></image>
+            </view>
+            <view class="balance_slice"></view>
+            <view class="balance_good_items" wx:key="skuId" wx:for="{{item.skus}}" wx:for-item="sku" wx:for-index="_anonIdx">
+                <view class="balance_good_item">
+                    <view class="balance_good_items_pic">
+                        <image class="balance_good_items_pic_image" src="{{sku.imgUrl}}" mode="aspectFill"></image>
+                    </view>
+                    <view class="info_wrap">
+                        <view class="info"><text class="info_name balance_grey">{{sku.main.skuName}}</text><text class="info_size balance_grey">{{sku.sizeInfo.name}}: {{sku.sizeInfo.value}}</text><text class="info_size balance_grey">{{sku.colorInfo.name}}: {{sku.colorInfo.value}}</text><text class="info_support balance_grey">支持7天无理由退换</text>
+                        </view>
+                        <view class="price"><text class="price_val">¥{{sku.main.price}}</text><text class="price_num">X{{sku.num}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="balance_slice"></view>
+            <view class="balance_good_count"><text class="count_text">共&nbsp;{{item.totalNum}}&nbsp;件商品</text><text class="count_total_text">小计：<text>¥{{item.totalPrice}}</text></text>
+            </view>
+        </view>
+    </view>
+</block>

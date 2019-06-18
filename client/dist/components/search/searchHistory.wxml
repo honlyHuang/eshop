@@ -1,0 +1,13 @@
+<block>
+    <block wx:if="{{historyWords.length > 0}}">
+        <view class="history">
+            <view class="history_title"><text class="history_title_content">历史搜索</text>
+            </view>
+            <view class="history_list">
+                <view class="history_word" wx:key="index" wx:for="{{historyWords}}" wx:for-item="item" wx:for-index="index"><text class="history_word_info" bindtap="goSearch" data-e-tap-so="this" data-e-tap-a-a="{{item}}">{{item}}</text>
+                    <image mode="aspectFit" src="{{delIcon}}" class="history_word_del" bindtap="deleteSearch" data-index="{{index}}" data-e-tap-so="this" data-e-tap-a-a="{{item}}"></image>
+                </view>
+            </view>
+        </view>
+    </block>
+</block>

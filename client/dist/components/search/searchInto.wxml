@@ -1,0 +1,5 @@
+<block>
+    <view class="search_into" bindtap="goSearch">
+        <image mode="aspectFit" class="search_icon" src="{{searchIcon}}"></image><text class="search_text" bindtap="goSearch">{{placeholder}}</text>
+    </view>
+</block>

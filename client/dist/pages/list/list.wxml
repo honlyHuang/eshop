@@ -1,0 +1,20 @@
+<block>
+    <view class="list">
+        <search-bar keyWords="{{keyWords}}" __triggerObserer="{{ _triggerObserer }}" showSearchResult="{{showSearchResult}}" bindonaddhistory="changeHistory" bindonsearchwords="goSearchWords" bindonshowsearchresult="showContent" __fn_onAddHistory="{{true}}" __fn_onSearchWords="{{true}}" __fn_onShowSearchResult="{{true}}"></search-bar>
+        <block wx:if="{{showSearchHot}}">
+            <search-hot hotWords="{{hotWords}}" __triggerObserer="{{ _triggerObserer }}" bindonsearchwords="goSearchWords" bindonaddhistory="changeHistory" __fn_onSearchWords="{{true}}" __fn_onAddHistory="{{true}}"></search-hot>
+        </block>
+        <block wx:if="{{showSearchHistory}}">
+            <search-history historyWords="{{historyWords}}" __triggerObserer="{{ _triggerObserer }}" bindonsearchwords="goSearchWords" bindonchangehistory="changeHistory" __fn_onSearchWords="{{true}}" __fn_onChangeHistory="{{true}}"></search-history>
+        </block>
+        <block wx:if="{{showSearchResult}}">
+            <search-filter bindongosearchcontent="goSearchWords" __triggerObserer="{{ _triggerObserer }}" __fn_onGoSearchContent="{{true}}"></search-filter>
+        </block>
+        <block wx:if="{{showSearchResult}}">
+            <result-list searchResult="{{searchResult}}" __triggerObserer="{{ _triggerObserer }}" showGoTop="{{showGoTop}}" scrollTop="{{scrollTop}}" bindonshowfilter="showContent" bindonsearchwords="goSearchWords" __fn_onShowFilter="{{true}}" __fn_onSearchWords="{{true}}"></result-list>
+        </block>
+        <block wx:if="{{showSearchResult && showError}}">
+            <search-error showNotFind="{{showNotFind}}" __triggerObserer="{{ _triggerObserer }}" showErrorProblem="{{showErrorProblem}}" keyWords="{{keyWords}}" bindongosearchcontent="goSearchWords" __fn_onGoSearchContent="{{true}}"></search-error>
+        </block>
+    </view>
+</block>

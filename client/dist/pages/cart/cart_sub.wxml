@@ -1,0 +1,14 @@
+<block>
+    <view class="cart">
+        <scroll-view class="{{cartClass}}" scroll-y="{{!showEidtBox}}" bindscroll="onViewScroll" enable-back-to-top="{{true}}">
+            <commondity-container isLogin="{{isLogin}}" __triggerObserer="{{ _triggerObserer }}" isFixedBar="{{isFixedBar}}"></commondity-container>
+            <goods isSub="{{true}}" __triggerObserer="{{ _triggerObserer }}"></goods>
+        </scroll-view>
+        <block wx:if="{{showEidtBox}}">
+            <edit-box __triggerObserer="{{ _triggerObserer }}"></edit-box>
+        </block>
+        <view class="cart_bottom" is-sub="{{true}}">
+            <bottom-bar isLogin="{{isLogin}}" __triggerObserer="{{ _triggerObserer }}"></bottom-bar>
+        </view>
+    </view>
+</block>

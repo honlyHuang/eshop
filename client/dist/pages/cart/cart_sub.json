@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "commondity-container": "../../components/cart/commodity/commodity_container",
+    "goods": "../../components/cart/goods/goods",
+    "edit-box": "../../components/cart/edit_box/edit_box",
+    "bottom-bar": "../../components/cart/bottom_bar/bottom_bar"
+  },
+  "navigationBarTitleText": "购物车",
+  "backgroundColor": "#f2efef",
+  "disableScroll": true
+}

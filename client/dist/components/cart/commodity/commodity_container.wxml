@@ -1,0 +1,5 @@
+<block>
+    <view class="commondity_container">
+        <commondity commoditys="{{commoditys}}" __triggerObserer="{{ _triggerObserer }}" editSkuData="{{editSkuData}}" isEditStatus="{{isEditStatus}}" isFetching="{{isFetching}}" isFixedBar="{{isFixedBar}}" bindonfetchcart="funPrivateKzAuW" bindonfetchcheckcart="funPrivateyproj" bindonfetchinvertcheckcart="funPrivateyRwwE" bindoncheckdelcart="funPrivatebIfvy" bindoninversecheckdelcart="funPrivateWnKSC" bindonshoweditbox="funPrivategMWhH" bindonfetchchangecartnum="funPrivateretoe" bindonfetchdelcart="funPrivateqNTUW" bindonchangeeditstatus="funPrivateUnOFd" __fn_onFetchCart="{{true}}" __fn_onFetchCheckCart="{{true}}" __fn_onFetchInvertCheckCart="{{true}}" __fn_onCheckDelCart="{{true}}" __fn_onInverseCheckDelCart="{{true}}" __fn_onShowEditBox="{{true}}" __fn_onFetchChangeCartNum="{{true}}" __fn_onFetchDelCart="{{true}}" __fn_onChangeEditStatus="{{true}}"></commondity>
+    </view>
+</block>

@@ -1,0 +1,86 @@
+<block>
+    <view class="balance_page">
+        <block wx:if="{{showTip}}">
+            <view class="balance_tip"><text class="balance_tip_text">温馨提示：订单中包含不支持7天无理由退货的商品，请确认相关商品信息后提交订单</text>
+                <view class="balance_tip_close" bindtap="closeTip">
+                    <image class="balance_tip_close_image" src="https://static.360buyimg.com/tp-statics/2018-4-20/m/img/ic_close1@2x.png"></image>
+                </view>
+            </view>
+        </block>
+        <scroll-view class="balance" scroll-y="{{true}}">
+            <view class="balance_good">
+                <view class="balance_tit"><text class="balance_tit_text">商品与配送</text>
+                </view>
+                <express freightPrice="{{freightPrice}}" __triggerObserer="{{ _triggerObserer }}"></express>
+                <good-list payCommodities="{{payCommodities}}" __triggerObserer="{{ _triggerObserer }}"></good-list>
+            </view>
+            <view class="balance_pay">
+                <view class="balance_tit"><text class="balance_tit_text">支付信息</text>
+                </view>
+                <view class="balance_box">
+                    <view class="balance_pay_info balance_pay_way" bindtap="showPayWayBox"><text class="balance_pay_info_label">支付</text><text class="balance_pay">{{paymentType === 4 ? '微信支付' : '货到付款'}}</text>
+                        <view class="arrow"></view>
+                    </view>
+                    <view class="balance_pay_info balance_pay_coupon"><text class="balance_pay_info_label">优惠券</text><text class="coupon_val balance_pay">无可用</text>
+                        <view class="arrow"></view>
+                    </view>
+                    <view class="balance_pay_info balance_pay_invoice"><text class="balance_pay_info_label">发票</text><text class="balance_pay_info_val balance_pay">个人-商品明细</text>
+                        <view class="arrow"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="balance_amount">
+                <view class="balance_tit"><text class="balance_tit_text">订单金额</text>
+                </view>
+                <view class="balance_box">
+                    <view class="balance_amount_info"><text class="label balance_grey">商品金额：</text><text class="val balance_grey">+￥{{totalPrice}}</text>
+                    </view>
+                    <view class="balance_amount_info"><text class="label balance_grey">运费：</text><text class="val balance_grey">+￥{{freightPrice}}</text>
+                    </view>
+                    <view class="balance_slice"></view><text class="balance_amount_total">合计：¥<block wx:if="{{allPrice}}"><text>{{allPrice}}</text>
+</block>
+</text>
+</view>
+</view>
+<block wx:if="{{aniShowPayWay}}">
+    <view class="{{showPayWay ? 'balance_pay_choose show' : 'balance_pay_choose'}}">
+        <view class="mask" bindanimationend="onAnimationEnd"></view>
+        <view class="main">
+            <view class="choose_main">
+                <view class="close_wrap">
+                    <view class="icon_close" bindtap="closePayWay"></view>
+                </view><text class="{{paymentType === 4 ? 'method checked' : 'method'}}" bindtap="checkPayWay" data-e-tap-so="this" data-e-tap-a-a="{{4}}">微信支付</text><text class="{{paymentType === 1 ? 'method checked' : 'method'}}" bindtap="checkPayWay" data-e-tap-so="this" data-e-tap-a-a="{{1}}">货到付款</text>
+            </view><text class="btn_close" bindtap="closePayWay">关闭</text>
+        </view>
+    </view>
+</block>
+<block wx:if="{{isShowUserAuthModal}}">
+    <modal title="授权提示" __triggerObserer="{{ _triggerObserer }}" contentText="TARO商城请求获取授权信息，以便记录您的订单" cancelCallback="onHideUserAuthModal" confirmCallback="onProcessAuthResult" isAuth="{{true}}" data-e-cancelCallback-so="this" data-e-confirmCallback-so="this"></modal>
+</block>
+</scroll-view>
+<view class="balance_footer">
+    <view class="balance_footer_info"><text class="balance_footer_info_text"><text>共计：</text><text class="yan">¥</text><text class="money">{{allPrice}}</text></text><text class="balance_footer_info_text">共<block wx:if="{{payNum}}"><text class="num">{{payNum}}</text>
+        </block>件商品</text>
+    </view>
+    <view bindtap="submitOrder" report-submit="true" class="balance_footer_btn">
+        <block>
+            <block wx:if="{{paymentType === 4 || !paymentType}}">
+                <block>
+                    <block wx:if="{{isShowUserAuth}}">
+                        <view class="balance_footer_btn" bindtap="showUserAuthModal"><text class="balance_footer_btn_text">微信支付</text>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="balance_footer_btn" form-type="submit"><text class="balance_footer_btn_text">微信支付</text>
+                        </view>
+                    </block>
+                </block>
+            </block>
+            <block wx:else>
+                <view class="balance_footer_btn" form-type="submit">货到付款</view>
+            </block>
+        </block>
+    </view>
+</view>
+</view>
+</block>

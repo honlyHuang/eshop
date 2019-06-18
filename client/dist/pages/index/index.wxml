@@ -1,0 +1,15 @@
+<block>
+    <view class="{{indexClassNames}}">
+        <view class="index-search_into">
+            <search-into placeholder="搜索框" __triggerObserer="{{ _triggerObserer }}" type="index"></search-into>
+        </view>
+        <scroll-view scroll-y="{{true}}" class="index_list">
+            <view wx:key="index" class="{{floor.className}}" bindtap="onGotoPage" wx:for="{{floorList}}" wx:for-item="floor" wx:for-index="index" data-e-tap-so="this" data-e-tap-a-a="{{floor.venderId}}">
+                <image mode="widthFix" class="index_item_img" src="{{floor.image}}" lazy-load="{{true}}"></image>
+            </view>
+        </scroll-view>
+        <block wx:if="{{showAuthModal}}">
+            <modal title="授权提示" __triggerObserer="{{ _triggerObserer }}" contentText="TARO商城请求获取授权信息，以便记录您的订单" bindoncancelcallback="hideAuthModal" bindonconfirmcallback="processAuthResult" isAuth="{{true}}" __fn_onCancelCallback="{{true}}" data-e-oncancelcallback-so="this" __fn_onConfirmCallback="{{true}}" data-e-onconfirmcallback-so="this"></modal>
+        </block>
+    </view>
+</block>
